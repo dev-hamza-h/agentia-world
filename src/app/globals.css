@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.link-hover {
+  position: relative;
+  display: inline-block;
+}
+
+.link-hover::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 0;
+  height: 3px;
+  background: #e879f9;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.link-hover:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
