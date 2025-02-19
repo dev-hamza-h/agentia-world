@@ -42,12 +42,12 @@ const Hero = () => {
 
         {/* Buttons */}
         <div className="mt-8 sm:mt-10 flex gap-4 justify-center items-center flex-wrap">
-          <button className="border bg-gradient-to-r from-fuchsia-500 to-blue-500 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2">
+          <button className="border bg-gradient-to-r from-fuchsia-500 to-blue-500 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transform transition-all duration-300 hover:scale-95">
             Deploy Your AI Agent
             <ChevronRight size={20} className="relative top-[1Fpx]" />
           </button>
 
-          <button className="border bg-gradient-to-r from-fuchsia-500 to-blue-500 text-white px-6 py-3 rounded-lg font-semibold">
+          <button className="border bg-gradient-to-r from-fuchsia-500 to-blue-500 text-white px-6 py-3 rounded-lg font-semibold transform transition-all duration-300 hover:scale-95">
             See AI in Action
           </button>
         </div>
