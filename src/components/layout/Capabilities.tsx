@@ -9,6 +9,7 @@ import {
   LineElement,
   Tooltip,
   Legend,
+  TooltipItem,
 } from "chart.js";
 
 ChartJS.register(
@@ -40,7 +41,7 @@ const data = {
       pointBackgroundColor: "#8b5cf6",
       pointBorderColor: "#fff",
       tension: 0.4,
-      pointRadius: 6, 
+      pointRadius: 6,
       pointHoverRadius: 8,
     },
   ],
@@ -65,8 +66,8 @@ const options = {
       backgroundColor: "#000",
       titleColor: "#fff",
       callbacks: {
-        label: (tooltipItem: any) => {
-          const score = tooltipItem.raw;
+        label: (tooltipItem: TooltipItem<"line">) => {
+          const score = tooltipItem.raw as number;
           const capability = aiCapabilities[tooltipItem.dataIndex];
           return [`Score: ${score}`, capability];
         },
@@ -80,10 +81,10 @@ export default function AICapabilities() {
     <section className="max-w-screen-2xl mx-auto bg-purple-900 text-white py-20 px-4 md:px-20">
       <div className="text-center mb-10">
         <h2 className="text-3xl font-bold bg-gradient-to-t from-fuchsia-500 to-blue-500 text-transparent bg-clip-text">
-        AI Efficiency Analysis
+          AI Efficiency Analysis
         </h2>
         <p className="text-white mt-2 text-lg">
-        Exploring diverse AI capabilities
+          Exploring diverse AI capabilities
         </p>
       </div>
 
