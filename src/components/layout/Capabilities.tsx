@@ -20,6 +20,15 @@ ChartJS.register(
   Legend
 );
 
+const aiCapabilities = [
+  "Multi-Modal Intelligence",
+  "Autonomous Learning",
+  "Deep Neural Networks",
+  "Natural Language Processing",
+  "Computer Vision",
+  "Reinforcement Learning",
+];
+
 const data = {
   labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
   datasets: [
@@ -31,6 +40,8 @@ const data = {
       pointBackgroundColor: "#8b5cf6",
       pointBorderColor: "#fff",
       tension: 0.4,
+      pointRadius: 6, 
+      pointHoverRadius: 8,
     },
   ],
 };
@@ -50,7 +61,17 @@ const options = {
   },
   plugins: {
     legend: { display: false },
-    tooltip: { backgroundColor: "#000", titleColor: "#fff" },
+    tooltip: {
+      backgroundColor: "#000",
+      titleColor: "#fff",
+      callbacks: {
+        label: (tooltipItem: any) => {
+          const score = tooltipItem.raw;
+          const capability = aiCapabilities[tooltipItem.dataIndex];
+          return [`Score: ${score}`, capability];
+        },
+      },
+    },
   },
 };
 
@@ -59,12 +80,13 @@ export default function AICapabilities() {
     <section className="max-w-screen-2xl mx-auto bg-purple-900 text-white py-20 px-4 md:px-20">
       <div className="text-center mb-10">
         <h2 className="text-3xl font-bold bg-gradient-to-t from-fuchsia-500 to-blue-500 text-transparent bg-clip-text">
-          AI Capabilities
+        AI Efficiency Analysis
         </h2>
         <p className="text-white mt-2 text-lg">
-          Revolutionizing industries with cutting-edge AI solutions
+        Exploring diverse AI capabilities
         </p>
       </div>
+
       <div className="h-96">
         <Line data={data} options={options} />
       </div>
